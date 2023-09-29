@@ -571,21 +571,3 @@ while (b1) {
 }
 
 
-    // let set=new Set([]);
-    // for (let l = 0; l < lest.length; l++) {
-    //     let r1=Math.floor(Math.random() *lest.length);
-    //     set.add(lest[r1].savol);
-    // }
-    // console.log(set);
-
-// function getSecondsToday() {
-//     let hozir= new Date();
-//     alert(hozir.getMinutes() * 60+d.getSeconds());
-//     alert("dfghjklhgfdcgfvhjkhmg");
-
-// let b = new Date();
-// alert(b.getMinutes() * 60+b.getSeconds());
-// alert((b.getMinutes() * 60+b.getSeconds())-(d.getMinutes() * 60+d.getSeconds()))
-//   }
-
-// getSecondsToday();
