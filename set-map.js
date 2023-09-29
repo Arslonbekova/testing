@@ -228,30 +228,30 @@ let lest = [{
         savol: ["8+18=? yig'indini hisoblang"],
         variant: ["17", "2", "26", "9"],
         javob: ["26"]
-    },
-    {
-        savol:["8+19=? yig'indini hisoblang"],
-        variant:[ "27",  "2" , "5" ,"9"],
-        javob:["27"]
-    },
-    {
-        savol:["8+20=? yig'indini hisoblang"],
-        variant:[ "28",  "2" , "5" ,"9"],
-        javob:["28"]
     }
+    // {
+    //     savol:["8+19=? yig'indini hisoblang"],
+    //     variant:[ "27",  "2" , "5" ,"9"],
+    //     javob:["27"]
+    // },
+    // {
+    //     savol:["8+20=? yig'indini hisoblang"],
+    //     variant:[ "28",  "2" , "5" ,"9"],
+    //     javob:["28"]
+    // }
 ];
 
 function startTest() {
     let x = 1;
     while (x) {
-        let tanlov = (prompt(`admen bo'lsangiz......a yoki admen\nuser bo'lsangiz.......b yoki user \nso'zini kiriting`)).toLowerCase();
+        let tanlov = (prompt(`A) Admen bo'lsangiz......a yoki admen\nB) User bo'lsangiz.......b yoki user \nso'zini kiriting`)).toLowerCase();
         if ((tanlov == "admen") || (tanlov == "a")) {
             admen();
         }
         if ((tanlov == "user") || (tanlov == "b")) {
             user(lest);
         }
-        let tekshirish = prompt(`test ishlab ko'rishni istaysizmi \n a)  ha \n b)  yo'q`);
+        let tekshirish = prompt(`Test ishlab ko'rishni istaysizmi \n a)  Ha \n b)  Yo'q`);
         if ((tekshirish == "a") || (tekshirish == "ha")) {
             x = 1;
         } else {
@@ -264,9 +264,9 @@ startTest();
 
 function user(lest) {
 
-    let ILTS = ["fan yoki sport olimpiadalarida faxrli o'rin egallaganmi(oxirgi ikki yil ichida) \n a)ha \n b)yo'q ",
-        "chet tili sertifikatingiz mavjudmi \n a)ha \n b)yo'q ",
-        "nogironligi to'g'risidagi xujjat mavjudmi \n a)ha \n b)yo'q"
+    let ILTS = ["Fan yoki sport olimpiadalarida faxrli o'rin egallaganmi(oxirgi ikki yil ichida) \n a)Ha \n b)Yo'q ",
+        "Chet tili sertifikatingiz mavjudmi \n a)Ha \n b)Yo'q ",
+        "Nogironligi to'g'risidagi xujjat mavjudmi \n a)Ha \n b)Yo'q"
     ]
 
     let b = 0,
@@ -292,30 +292,21 @@ function user(lest) {
     let bosh = boshlandi.getMinutes() * 60 + boshlandi.getSeconds();
     let r=Math.floor(Math.random() * 4);
     for (let i = 0; i <= lest.length - 1; i++) {
-       let lest2={
-            variant: ["17", "25", "5", "9"]};
-        lest2.variant[0] =lest[i].variant.at(r-1);
-        lest2.variant[1] =lest[i].variant.at(r-2);
-        lest2.variant[2] =lest[i].variant.at(r-3);
-        lest2.variant[3] =lest[i].variant.at(r-4);
-        console.log(lest2.variant);
+       let lest2={variant: ["17", "25", "5", "9"]};
+            lest2.variant[0] =lest[i].variant.at(r-1);
+            lest2.variant[1] =lest[i].variant.at(r-2);
+            lest2.variant[2] =lest[i].variant.at(r-3);
+            lest2.variant[3] =lest[i].variant.at(r-4);
+            console.log(lest2.variant);
         variant = prompt(`${i+1}-savol. ${lest[i].savol} \nA. ${lest[i].variant.at(r-1)} \nB. ${lest[i].variant.at(r-2)} \nC. ${lest[i].variant.at(r-3)} \nD. ${lest[i].variant.at(r-4)} `);
-        if ((variant[0].toLowerCase() == "a")){
-            if (lest2.variant[0] == lest[i].javob[0]) {
+        if ((variant[0].toLowerCase() == "a")&&(lest2.variant[0] == lest[i].javob[0])){
                 d = d + 5;
-            }
-        } else if (variant[0].toLowerCase() == "b") {
-            if (lest2.variant[1] == lest[i].javob[0]) {
+        } else if ((variant[0].toLowerCase() == "b")&&(lest2.variant[1] == lest[i].javob[0])) {
                 d = d + 5;
-            }
-        } else if (variant[0].toLowerCase() == "c") {
-            if (lest2.variant[2] == lest[i].javob[0]) {
+        } else if ((variant[0].toLowerCase() == "c") &&(lest2.variant[2] == lest[i].javob[0])){
                 d = d + 5;
-            }
-        } else if (variant[0].toLowerCase() == "b") {
-            if (lest2.variant[3] == lest[i].javob[0]) {
+        } else if ((variant[0].toLowerCase() == "d")&& (lest2.variant[3] == lest[i].javob[0])){
                 d = d + 5;
-            }
         } else if (variant.toLowerCase() == ("quet" || "chiqish" || "break")) {
             i = lest.length;
         } else {
@@ -337,9 +328,9 @@ function admen() {
         xatolik = 0,
         parol1 = "1234";;
     while (b1) {
-        let parol = prompt(`parolni kiriting`);
+        let parol = prompt(`Parolni kiriting`);
         if (parol == parol1) {
-            let savol1 = prompt(`a.savol kiritishni istasangiz kiritish so'zi yoki a variantini kiriting \n b)savol taxrirlashni istasangiz......taxrirlash so'zi yiki a variantini kiriting`);
+            let savol1 = prompt(`a.Savol kiritishni istasangiz......"kiritish" so'zi yoki "A" variantini kiriting \nb)Savol taxrirlashni istasangiz......"taxrirlash "so'zi yiki "A" variantini kiriting`);
             if ((savol1[0].toLowerCase() == "a") || (savol1.toLowerCase() == "kiritish")) {
                 let y = 1,
                     push1 = {
@@ -373,7 +364,7 @@ function admen() {
             xatolik = xatolik + 1;
         }
         if (xatolik == 3) {
-            alert(`siz 3 marta xatom kiritdingiz va sayt tomonidan bloklandingiz`);
+            alert(`Siz 3 marta xato kiritdingiz va sayt tomonidan bloklandingiz`);
             b1 = 0;
             break;
         }
