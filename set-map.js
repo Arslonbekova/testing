@@ -378,7 +378,8 @@
 
 ///////////verstion(0.5)
 
-let lest = [{
+let lest = [
+    {
         savol: ["8+9=? yig'indini hisoblang"],
         variant: ["17", "2", "5", "9"],
         javob: ["17"]
@@ -427,17 +428,17 @@ let lest = [{
         savol: ["8+18=? yig'indini hisoblang"],
         variant: ["17", "2", "26", "9"],
         javob: ["26"]
+    },
+    {
+        savol:["8+19=? yig'indini hisoblang"],
+        variant:[ "27",  "2" , "5" ,"9"],
+        javob:["27"]
+    },
+    {
+        savol:["8+20=? yig'indini hisoblang"],
+        variant:[ "28",  "2" , "5" ,"9"],
+        javob:["28"]
     }
-    // {
-    //     savol:["8+19=? yig'indini hisoblang"],
-    //     variant:[ "27",  "2" , "5" ,"9"],
-    //     javob:["27"]
-    // },
-    // {
-    //     savol:["8+20=? yig'indini hisoblang"],
-    //     variant:[ "28",  "2" , "5" ,"9"],
-    //     javob:["28"]
-    // }
 ];
 
 function startTest() {
@@ -538,26 +539,33 @@ function admen() {
         let parol = prompt(`Parolni kiriting`);
         if (parol == parol1) {
             let savol1 = prompt(`A)Savol kiritishni istasangiz......"kiritish" so'zi yoki "A" variantini kiriting \nB)Savol taxrirlashni istasangiz......"taxrirlash "so'zi yiki "A" variantini kiriting`);
-            if ((savol1[0].toLowerCase() == "a") || (savol1.toLowerCase() == "kiritish")) {
-                let y = 1,
-                    push1 = {
-                        savol: [],
-                        variant: [],
-                        javob: []
-                    };
+            if ((savol1[0].toLowerCase()== "a") || (savol1.toLowerCase() == "kiritish")) {
+                let y = 1;
                 while (y) {
-                    push1.savol.push(prompt(`Savolni kiriting`));
-                    for (let i = 0; i <= 3; i++) {
-                        push1.variant.push(prompt(`${i+1}-variantni kiriting`));
+                  let push1 = {
+                        savol: [(prompt(`Savolni kiriting`))],
+                        variant:[prompt(`1-variantni kiriting`),prompt(`2-variantni kiriting`),prompt(`3-variantni kiriting`),(prompt(`4-variantni kiriting`))],
+                        javob:[]                
                     }
-                    push1.javob.push(prompt(`$ ${push1.savol} \n a.${push1.variant[0]}\n b.${push1.variant[1]}\n c.${push1.variant[2]} \n d.${push1.variant[3]}\n javob qiymatini kiring)`));
+                    let jvb=1;
+                    while (jvb) {
+                        push1.javob=[prompt(`${push1.savol} \n a.${push1.variant[0]}\n b.${push1.variant[1]}\n c.${push1.variant[2]} \n d.${push1.variant[3]}\n javob qiymatini kiring)`)]
+                        if(push1.variant.some(a=> a==push1.javob)){
+                            lest.push(push1);
+                            jvb=0;
+                            console.log(push1);
+                            console.log(lest);
+                        }
+                        else{
+                            alert(`siz kiritgan qiymat javob variantlari orasida yo'q tekshirib qaytadan qiymatni kiring kiriting`);
+                            jvb=1;
+                        }   
+                    }
                     let yana = prompt(`Yana savolni kiritishni istaysizmi \n A)Ha \n B)Yo'q`);
-                    if ((yana.toLowerCase() == "b") || (yana.toLowerCase() == "yo'q")) {
-                        y = 0, b1 = 0;
-                    }
+                    if ((yana[0].toLowerCase() == "b") || (yana.toLowerCase() == "yo'q"))  y = 0, b1 = 0;
                 }
-                lest.push(push1);
-            } else if ((savol1[0].toLowerCase() == "b") || (savol1.toLowerCase() == "taxrirlash")) {
+            } 
+            else if ((savol1[0].toLowerCase() == "b") || (savol1.toLowerCase() == "taxrirlash")) {
                 y = 1;
 
             } else {
