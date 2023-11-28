@@ -161,7 +161,7 @@
 //         i=lest.length;
 //     }
 //     javoblar=javoblar+"     "+(i+1)+"."+lest[i].javob;  
-//     kiritilgan_javoblar=kiritilgan_javoblar+"     "+(i+1)+"."+variant;
+    // kiritilgan_javoblar=kiritilgan_javoblar+"     "+(i+1)+"."+variant;
 
 // }
 // let tjavob=lest.length-(lest.length-(d/5));
@@ -170,3 +170,5 @@
 
 // }
 // startTest(lest);
+
+
